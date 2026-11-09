@@ -1,0 +1,1010 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cool Cars Pilar | Chapa, Pintura & Detailing · Propuesta Dark Studio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-main: #08090c;
+      --bg-surface: #101217;
+      --bg-card: #151820;
+      --border: rgba(255, 255, 255, 0.08);
+      --border-focus: rgba(123, 44, 191, 0.4);
+      --purple: #7b2cbf;
+      --purple-glow: #9d4edd;
+      --purple-soft: rgba(123, 44, 191, 0.15);
+      --text: #f4f5f8;
+      --text-muted: #8e93a0;
+      --font-display: 'Syne', sans-serif;
+      --font-body: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg-main);
+      color: var(--text);
+      font-family: var(--font-body);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    /* Header */
+    header {
+      background: rgba(8, 9, 12, 0.85);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      padding: 14px 24px;
+    }
+
+    .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .brand-logo-img {
+      height: 38px;
+      width: auto;
+      display: block;
+      transition: opacity 0.2s;
+    }
+
+    .brand-logo-img:hover {
+      opacity: 0.9;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 32px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover {
+      color: var(--text);
+    }
+
+    .btn-nav-wpp {
+      background: var(--purple);
+      color: #fff;
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 600;
+      padding: 9px 18px;
+      border-radius: 50px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.2s ease;
+      box-shadow: 0 4px 16px rgba(123, 44, 191, 0.3);
+    }
+
+    .btn-nav-wpp:hover {
+      background: var(--purple-glow);
+      transform: translateY(-1px);
+      box-shadow: 0 6px 20px rgba(157, 78, 221, 0.45);
+    }
+
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+    }
+
+    /* Hero */
+    .hero {
+      position: relative;
+      padding: 90px 24px 80px;
+      background: radial-gradient(circle at 75% 20%, rgba(123, 44, 191, 0.18) 0%, transparent 55%),
+                  radial-gradient(circle at 15% 85%, rgba(157, 78, 221, 0.08) 0%, transparent 45%);
+    }
+
+    .hero-wrap {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    @media (max-width: 900px) {
+      .hero-wrap {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        padding-top: 20px;
+      }
+    }
+
+    .badge-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--purple-soft);
+      border: 1px solid var(--border-focus);
+      color: #d8b4fe;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      padding: 6px 14px;
+      border-radius: 50px;
+      margin-bottom: 24px;
+    }
+
+    .badge-pill::before {
+      content: "";
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #c084fc;
+      box-shadow: 0 0 10px #c084fc;
+    }
+
+    .hero-h1 {
+      font-family: var(--font-display);
+      font-size: clamp(40px, 5.5vw, 68px);
+      font-weight: 800;
+      line-height: 1.05;
+      letter-spacing: -1.5px;
+      margin-bottom: 24px;
+      text-transform: uppercase;
+    }
+
+    .hero-h1 span {
+      background: linear-gradient(135deg, #ffffff 40%, #c084fc 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero-p {
+      font-size: 17px;
+      color: var(--text-muted);
+      line-height: 1.7;
+      max-width: 540px;
+      margin-bottom: 36px;
+      font-weight: 400;
+    }
+
+    .hero-action {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      align-items: center;
+      margin-bottom: 40px;
+    }
+
+    .btn-primary {
+      background: var(--purple);
+      color: #fff;
+      text-decoration: none;
+      font-size: 15px;
+      font-weight: 700;
+      padding: 15px 32px;
+      border-radius: 50px;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      transition: all 0.25s ease;
+      box-shadow: 0 10px 28px rgba(123, 44, 191, 0.4);
+    }
+
+    .btn-primary:hover {
+      background: var(--purple-glow);
+      transform: translateY(-2px);
+      box-shadow: 0 12px 34px rgba(157, 78, 221, 0.6);
+    }
+
+    .hero-loc {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    .hero-loc svg {
+      color: #c084fc;
+    }
+
+    /* Hero Visual Card */
+    .hero-visual {
+      position: relative;
+    }
+
+    .hero-media-card {
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      background: var(--bg-surface);
+      position: relative;
+      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
+    }
+
+    .hero-media-card img {
+      width: 100%;
+      height: 480px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .media-card-caption {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 24px;
+      background: linear-gradient(180deg, transparent 0%, rgba(8, 9, 12, 0.95) 100%);
+    }
+
+    .media-card-caption h4 {
+      font-family: var(--font-display);
+      font-size: 20px;
+      margin-bottom: 4px;
+      color: #fff;
+    }
+
+    .media-card-caption p {
+      font-size: 13px;
+      color: #c4b5fd;
+    }
+
+    /* Stats strip */
+    .stats-strip {
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      background: var(--bg-surface);
+      padding: 32px 24px;
+    }
+
+    .stats-wrap {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+    }
+
+    @media (max-width: 768px) {
+      .stats-wrap {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+      }
+    }
+
+    .stat-item h3 {
+      font-family: var(--font-display);
+      font-size: 32px;
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 2px;
+    }
+
+    .stat-item h3 span {
+      color: #c084fc;
+    }
+
+    .stat-item p {
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    /* Core Services - Senior Refined Layout */
+    .section {
+      padding: 100px 24px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .section-head {
+      margin-bottom: 54px;
+    }
+
+    .section-tag {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #c084fc;
+      margin-bottom: 10px;
+      display: block;
+    }
+
+    .section-title {
+      font-family: var(--font-display);
+      font-size: clamp(32px, 4.5vw, 50px);
+      letter-spacing: -1px;
+      line-height: 1.1;
+      text-transform: uppercase;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+
+    @media (max-width: 900px) {
+      .services-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .service-box {
+      background: var(--bg-surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 36px 30px;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    .service-box:hover {
+      border-color: var(--border-focus);
+      transform: translateY(-4px);
+      box-shadow: 0 16px 36px rgba(123, 44, 191, 0.12);
+    }
+
+    .service-box-num {
+      font-family: var(--font-display);
+      font-size: 14px;
+      color: #a855f7;
+      font-weight: 700;
+      letter-spacing: 1px;
+      margin-bottom: 20px;
+      display: block;
+    }
+
+    .service-box h3 {
+      font-family: var(--font-display);
+      font-size: 24px;
+      letter-spacing: -0.5px;
+      margin-bottom: 12px;
+      color: #fff;
+    }
+
+    .service-box p {
+      font-size: 14px;
+      color: var(--text-muted);
+      line-height: 1.7;
+    }
+
+    /* Interactive Before/After Split Slider */
+    .slider-section {
+      background: #0b0c10;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 100px 24px;
+    }
+
+    .slider-container {
+      max-width: 1040px;
+      margin: 0 auto;
+    }
+
+    .split-slider-wrapper {
+      position: relative;
+      width: 100%;
+      height: 480px;
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      box-shadow: 0 25px 50px rgba(0, 0, 0, 0.6);
+      user-select: none;
+      -webkit-user-select: none;
+      touch-action: pan-y;
+      cursor: ew-resize;
+    }
+
+    @media (max-width: 768px) {
+      .split-slider-wrapper {
+        height: 340px;
+      }
+    }
+
+    .slider-img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .slider-overlay-img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 50%;
+      height: 100%;
+      overflow: hidden;
+      border-right: 2px solid #fff;
+      box-shadow: 2px 0 15px rgba(123, 44, 191, 0.8);
+      z-index: 2;
+    }
+
+    .slider-overlay-img img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      max-width: none;
+    }
+
+    .slider-handle {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 44px;
+      height: 44px;
+      background: #fff;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.7), 0 0 15px rgba(157, 78, 221, 0.8);
+      z-index: 5;
+      pointer-events: none;
+      color: #08090c;
+    }
+
+    .slider-tag {
+      position: absolute;
+      top: 20px;
+      padding: 6px 14px;
+      border-radius: 4px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      z-index: 4;
+      backdrop-filter: blur(8px);
+    }
+
+    .tag-left {
+      left: 20px;
+      background: rgba(12, 13, 16, 0.85);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      color: #fca5a5;
+    }
+
+    .tag-right {
+      right: 20px;
+      background: rgba(123, 44, 191, 0.85);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: #fff;
+    }
+
+    .slider-hint {
+      text-align: center;
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-top: 16px;
+    }
+
+    /* Real Reels / Instagram Showcase */
+    .reels-section {
+      padding: 100px 24px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .reels-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+
+    @media (max-width: 860px) {
+      .reels-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .reel-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      overflow: hidden;
+      text-decoration: none;
+      color: inherit;
+      display: block;
+      transition: all 0.3s ease;
+    }
+
+    .reel-card:hover {
+      border-color: var(--border-focus);
+      transform: translateY(-4px);
+    }
+
+    .reel-thumb-wrap {
+      position: relative;
+      height: 380px;
+      overflow: hidden;
+      background: #000;
+    }
+
+    .reel-thumb-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+
+    .reel-card:hover .reel-thumb-wrap img {
+      transform: scale(1.04);
+    }
+
+    .reel-play-badge {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: rgba(8, 9, 12, 0.7);
+      backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+    }
+
+    .reel-body {
+      padding: 24px;
+    }
+
+    .reel-cat {
+      font-size: 11px;
+      color: #c084fc;
+      text-transform: uppercase;
+      font-weight: 700;
+      letter-spacing: 1px;
+      margin-bottom: 6px;
+      display: block;
+    }
+
+    .reel-body h4 {
+      font-family: var(--font-display);
+      font-size: 18px;
+      margin-bottom: 8px;
+      line-height: 1.3;
+      color: #fff;
+    }
+
+    .reel-body p {
+      font-size: 13px;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    /* Workshop & Location Section */
+    .location-box {
+      background: linear-gradient(135deg, rgba(123, 44, 191, 0.12) 0%, rgba(16, 18, 23, 0.9) 100%);
+      border: 1px solid var(--border-focus);
+      border-radius: 20px;
+      padding: 48px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: center;
+      margin-bottom: 80px;
+    }
+
+    @media (max-width: 800px) {
+      .location-box {
+        grid-template-columns: 1fr;
+        padding: 30px;
+      }
+    }
+
+    .loc-content h3 {
+      font-family: var(--font-display);
+      font-size: 32px;
+      letter-spacing: -0.5px;
+      margin-bottom: 14px;
+      color: #fff;
+    }
+
+    .loc-content p {
+      font-size: 15px;
+      color: var(--text-muted);
+      line-height: 1.7;
+      margin-bottom: 24px;
+    }
+
+    .loc-address {
+      font-size: 14px;
+      color: #e9d5ff;
+      background: rgba(123, 44, 191, 0.2);
+      border: 1px solid var(--border-focus);
+      padding: 12px 18px;
+      border-radius: 8px;
+      display: inline-block;
+      margin-bottom: 24px;
+    }
+
+    .loc-actions {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .btn-maps {
+      background: #fff;
+      color: #08090c;
+      font-size: 14px;
+      font-weight: 700;
+      padding: 12px 24px;
+      border-radius: 50px;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.2s;
+    }
+
+    .btn-maps:hover {
+      background: #f3e8ff;
+      transform: translateY(-2px);
+    }
+
+    .loc-img-wrap {
+      border-radius: 12px;
+      overflow: hidden;
+      height: 300px;
+      border: 1px solid var(--border);
+    }
+
+    .loc-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid var(--border);
+      background: #050608;
+      padding: 50px 24px 90px;
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    .footer-wrap {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    /* Mobile Single Bar */
+    .mobile-bar {
+      display: none;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(8, 9, 12, 0.96);
+      backdrop-filter: blur(12px);
+      border-top: 1px solid var(--border);
+      padding: 12px 20px;
+      z-index: 200;
+    }
+
+    @media (max-width: 768px) {
+      .mobile-bar {
+        display: block;
+      }
+    }
+
+    .mobile-bar-btn {
+      width: 100%;
+      background: var(--purple);
+      color: #fff;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 14px;
+      padding: 13px;
+      border-radius: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      box-shadow: 0 4px 20px rgba(123, 44, 191, 0.4);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <header>
+    <div class="nav-container">
+      <a href="#" class="brand">
+        <img src="assets/logo-transparent.png" alt="Cool Cars Pilar" class="brand-logo-img">
+      </a>
+      <ul class="nav-links">
+        <li><a href="#servicios">Especialidades</a></li>
+        <li><a href="#transformacion">Antes y Después</a></li>
+        <li><a href="#proyectos">En el Taller</a></li>
+        <li><a href="#ubicacion">Ubicación</a></li>
+      </ul>
+      <a href="https://wa.me/5491164766041?text=Hola%20chicos%20de%20Cool%20Cars!%20Les%20mando%20fotos%20de%20mi%20auto%20para%20un%20presupuesto" target="_blank" class="btn-nav-wpp">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
+        Cotizar por WhatsApp
+      </a>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-wrap">
+      <div>
+        <div class="badge-pill">Taller & Detailing Box · Pilar</div>
+        <h1 class="hero-h1">
+          Hacemos que <span>suceda.</span>
+        </h1>
+        <p class="hero-p">
+          ¿Te chocaron o rayaron el auto y te da dolor de cabeza pensar en el arreglo? En Cool Cars nos encargamos de devolverle la línea original y el brillo de fábrica, con la mejor calidad y sin vueltas.
+        </p>
+
+        <div class="hero-action">
+          <a href="https://wa.me/5491164766041?text=Hola%20chicos%20de%20Cool%20Cars!%20Les%20mando%20fotos%20de%20mi%20auto%20para%20un%20presupuesto" target="_blank" class="btn-primary">
+            Cotizar con fotos por WhatsApp →
+          </a>
+        </div>
+
+        <div class="hero-loc">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <span>Av. Dr. Honorio Pueyrredón 6965, Villa Rosa · Pilar</span>
+        </div>
+      </div>
+
+      <div class="hero-visual">
+        <div class="hero-media-card">
+          <img src="assets/box-detailing.jpg" alt="Nuevo Box de Detailing Cool Cars Pilar">
+          <div class="media-card-caption">
+            <h4>Nuevo Box de Detailing</h4>
+            <p>Tratamientos cerámicos, corrección de barniz y estética integral.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats Strip -->
+  <div class="stats-strip">
+    <div class="stats-wrap">
+      <div class="stat-item">
+        <h3>+15<span>Años</span></h3>
+        <p>De oficio en chapa y pintura</p>
+      </div>
+      <div class="stat-item">
+        <h3>100%<span>OEM</span></h3>
+        <p>Igualación de tono original</p>
+      </div>
+      <div class="stat-item">
+        <h3>Cabina<span>Horno</span></h3>
+        <p>Secado presurizado libre de motas</p>
+      </div>
+      <div class="stat-item">
+        <h3>Fotos<span>En el Día</span></h3>
+        <p>Presupuestos ágiles por WhatsApp</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Services -->
+  <section class="section" id="servicios">
+    <div class="section-head">
+      <span class="section-tag">Capacidades del Taller</span>
+      <h2 class="section-title">Especialidades Cool Cars</h2>
+    </div>
+
+    <div class="services-grid">
+      <div class="service-box">
+        <span class="service-box-num">01 / ESTRUCTURA</span>
+        <h3>Chapa & Escuadre</h3>
+        <p>Enderezado fino de largueros, frente, guardabarros y paneles. Devolvemos las luces y líneas originales de carrocería sin deformaciones.</p>
+      </div>
+
+      <div class="service-box">
+        <span class="service-box-num">02 / COLOR</span>
+        <h3>Pintura Bicapa en Cabina</h3>
+        <p>Formulación exacta con laboratorio de color. Horneado y difuminado en paneles contiguos para que nadie note dónde estuvo el toque.</p>
+      </div>
+
+      <div class="service-box">
+        <span class="service-box-num">03 / ESTÉTICA</span>
+        <h3>Box de Detailing & Ópticas</h3>
+        <p>Sacabollos sin dañar pintura (DSP), abrillantado, selladores cerámicos de alta durabilidad y restauración cristalina de faros.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Before / After Split Slider -->
+  <section class="slider-section" id="transformacion">
+    <div class="slider-container">
+      <div class="section-head" style="text-align: center; margin-bottom: 36px;">
+        <span class="section-tag">Transformación Real</span>
+        <h2 class="section-title">Del Golpe a la Línea de Fábrica</h2>
+      </div>
+
+      <!-- Slider interactivo con arrastre táctil / mouse -->
+      <div class="split-slider-wrapper" id="beforeAfterSlider">
+        <img src="assets/reparacion-choque.jpg" class="slider-img" id="imgAfter" alt="Trabajo finalizado en cabina">
+        <div class="slider-overlay-img" id="sliderOverlay">
+          <img src="assets/chapa-estructura.jpg" id="imgBefore" alt="Ingreso del choque en taller">
+        </div>
+        <div class="slider-handle" id="sliderHandle">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m9 18-6-6 6-6"/><path d="m15 6 6 6-6 6"/></svg>
+        </div>
+        <span class="slider-tag tag-left">INGRESO AL TALLER</span>
+        <span class="slider-tag tag-right">ENTREGA FINAL FLAMA</span>
+      </div>
+      <p class="slider-hint">↔ Arrastrá la barra con el mouse o con el dedo para comparar el antes y después</p>
+    </div>
+  </section>
+
+  <!-- Real Instagram Reels Grid -->
+  <section class="reels-section" id="proyectos">
+    <div class="section-head">
+      <span class="section-tag">Seguinos en @coolcarspilar</span>
+      <h2 class="section-title">Procesos Reales en Video</h2>
+    </div>
+
+    <div class="reels-grid">
+      <a href="https://www.instagram.com/coolcarspilar/" target="_blank" class="reel-card">
+        <div class="reel-thumb-wrap">
+          <img src="assets/reparacion-choque.jpg" alt="Transformación de lateral">
+          <div class="reel-play-badge">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+          </div>
+        </div>
+        <div class="reel-body">
+          <span class="reel-cat">Chapa & Pintura</span>
+          <h4>Recuperación de lateral con choque</h4>
+          <p>Enderezado milimétrico, masillado fino y pintura con acabado de fábrica.</p>
+        </div>
+      </a>
+
+      <a href="https://www.instagram.com/coolcarspilar/" target="_blank" class="reel-card">
+        <div class="reel-thumb-wrap">
+          <img src="assets/restauracion-opticas.jpg" alt="Restauración de ópticas">
+          <div class="reel-play-badge">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+          </div>
+        </div>
+        <div class="reel-body">
+          <span class="reel-cat">Detailing</span>
+          <h4>Restauración y pulido de ópticas</h4>
+          <p>Eliminación de opacidad y barniz amarillo, devolviendo el haz de luz original.</p>
+        </div>
+      </a>
+
+      <a href="https://www.instagram.com/coolcarspilar/" target="_blank" class="reel-card">
+        <div class="reel-thumb-wrap">
+          <img src="assets/brillo-detailing.jpg" alt="Corrección de barniz y brillo">
+          <div class="reel-play-badge">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+          </div>
+        </div>
+        <div class="reel-body">
+          <span class="reel-cat">Estética Automotriz</span>
+          <h4>Corrección de barniz y sellado</h4>
+          <p>Lustrado en 3 pasos para eliminar micro-rayones y sellador con repelencia al agua.</p>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- Location & Contact -->
+  <section class="section" id="ubicacion" style="padding-top: 0;">
+    <div class="location-box">
+      <div class="loc-content">
+        <h3>Visitanos en el Taller</h3>
+        <p>
+          Atendido por sus propios dueños. Traé tu auto para que lo miremos juntos o envianos fotos por WhatsApp para tener una cotización estimada en el momento.
+        </p>
+        <div class="loc-address">
+          📍 Av. Dr. Honorio Pueyrredón 6965, Villa Rosa, Pilar (RP 25)
+        </div>
+        <div class="loc-actions">
+          <a href="https://maps.app.goo.gl/wtBLmBh2vvhkSX7GA" target="_blank" class="btn-maps">
+            Ver en Google Maps ↗
+          </a>
+          <a href="https://wa.me/5491164766041?text=Hola%20chicos!%20Quiero%20pasar%20por%20el%20taller%20para%20un%20presupuesto" target="_blank" class="btn-primary" style="padding: 12px 24px; font-size: 14px;">
+            Consultar turno por WhatsApp
+          </a>
+        </div>
+      </div>
+      <div class="loc-img-wrap">
+        <img src="assets/taller-proceso.jpg" alt="Taller Cool Cars Pilar en pleno trabajo">
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-wrap">
+      <div>
+        <img src="assets/logo-transparent.png" alt="Cool Cars Pilar" style="height: 28px; opacity: 0.7; margin-bottom: 8px;">
+        <p>Taller de Chapa, Pintura y Detailing en Pilar · Prov. de Buenos Aires.</p>
+      </div>
+      <div>
+        <p>WhatsApp: <strong>+54 9 11 6476-6041</strong> · Instagram: <strong>@coolcarspilar</strong></p>
+        <p>© 2026 Cool Cars Pilar. En Cool Cars hacemos que suceda 💜</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Single Mobile Sticky Action -->
+  <div class="mobile-bar">
+    <a href="https://wa.me/5491164766041?text=Hola%20chicos%20de%20Cool%20Cars!%20Les%20mando%20fotos%20de%20mi%20auto%20para%20un%20presupuesto" class="mobile-bar-btn">
+      💬 Cotizar por WhatsApp con fotos
+    </a>
+  </div>
+
+  <!-- Interactive Slider Script -->
+  <script>
+    const slider = document.getElementById('beforeAfterSlider');
+    const overlay = document.getElementById('sliderOverlay');
+    const handle = document.getElementById('sliderHandle');
+    const beforeImg = document.getElementById('imgBefore');
+
+    function syncImgWidth() {
+      if (beforeImg && slider) {
+        beforeImg.style.width = slider.offsetWidth + 'px';
+      }
+    }
+
+    window.addEventListener('resize', syncImgWidth);
+    syncImgWidth();
+
+    let isDown = false;
+
+    function move(e) {
+      if (!isDown) return;
+      const rect = slider.getBoundingClientRect();
+      const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+      let pos = ((clientX - rect.left) / rect.width) * 100;
+      if (pos < 5) pos = 5;
+      if (pos > 95) pos = 95;
+      overlay.style.width = pos + '%';
+      handle.style.left = pos + '%';
+    }
+
+    slider.addEventListener('mousedown', () => isDown = true);
+    window.addEventListener('mouseup', () => isDown = false);
+    slider.addEventListener('mousemove', move);
+
+    slider.addEventListener('touchstart', () => isDown = true, { passive: true });
+    window.addEventListener('touchend', () => isDown = false);
+    slider.addEventListener('touchmove', move, { passive: true });
+  </script>
+</body>
+</html>

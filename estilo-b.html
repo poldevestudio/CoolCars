@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cool Cars Pilar | Precision Studio & Colorimetría · Propuesta Luminous White</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #f8fafc;
+      --bg-white: #ffffff;
+      --surface: #ffffff;
+      --border: #e2e8f0;
+      --border-focus: #c4b5fd;
+      --purple: #7c3aed;
+      --purple-hover: #6d28d9;
+      --purple-soft: #f5f3ff;
+      --purple-border: #ddd6fe;
+      --text: #0f172a;
+      --text-muted: #64748b;
+      --shadow-sm: 0 4px 12px rgba(15, 23, 42, 0.04);
+      --shadow-md: 0 12px 30px rgba(15, 23, 42, 0.07);
+      --font-display: 'Space Grotesk', sans-serif;
+      --font-body: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: var(--font-body);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    /* Minimalist Light Header */
+    header {
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      padding: 18px 32px;
+    }
+
+    .nav-wrap {
+      max-width: 1240px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .brand-logo {
+      height: 36px;
+      width: auto;
+      display: block;
+    }
+
+    .nav-meta {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    .meta-tag {
+      font-family: monospace;
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--purple);
+      background: var(--purple-soft);
+      padding: 5px 12px;
+      border-radius: 6px;
+      border: 1px solid var(--purple-border);
+      letter-spacing: 0.5px;
+    }
+
+    .btn-wpp-direct {
+      background: var(--purple);
+      color: #fff;
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 700;
+      padding: 10px 22px;
+      border-radius: 6px;
+      transition: all 0.2s;
+      box-shadow: 0 4px 14px rgba(124, 58, 237, 0.25);
+    }
+
+    .btn-wpp-direct:hover {
+      background: var(--purple-hover);
+      transform: translateY(-1px);
+      box-shadow: 0 6px 20px rgba(124, 58, 237, 0.35);
+    }
+
+    @media (max-width: 768px) {
+      .nav-meta span { display: none; }
+      header { padding: 14px 20px; }
+    }
+
+    /* Hero Section - Clean Luminous Gallery */
+    .hero {
+      padding: 90px 32px 80px;
+      background: linear-gradient(180deg, #ffffff 0%, var(--bg) 100%);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .hero-grid {
+      max-width: 1240px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    @media (max-width: 900px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+      .hero { padding: 50px 20px 60px; }
+    }
+
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-family: monospace;
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--purple);
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      background: var(--purple-soft);
+      padding: 6px 14px;
+      border-radius: 50px;
+      border: 1px solid var(--purple-border);
+      margin-bottom: 24px;
+    }
+
+    .hero-title {
+      font-family: var(--font-display);
+      font-size: clamp(38px, 5.2vw, 62px);
+      font-weight: 700;
+      line-height: 1.08;
+      letter-spacing: -1.5px;
+      color: var(--text);
+      margin-bottom: 22px;
+    }
+
+    .hero-title span {
+      color: var(--purple);
+    }
+
+    .hero-lead {
+      font-size: 17px;
+      color: var(--text-muted);
+      line-height: 1.7;
+      max-width: 530px;
+      margin-bottom: 36px;
+    }
+
+    .hero-cta-line {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .btn-atelier {
+      background: var(--text);
+      color: #fff;
+      font-size: 14px;
+      font-weight: 700;
+      padding: 15px 30px;
+      border-radius: 6px;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.2s;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .btn-atelier:hover {
+      background: #000;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(15, 23, 42, 0.2);
+    }
+
+    .loc-text {
+      font-size: 13px;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    /* Hero Tech Image */
+    .hero-editorial-img {
+      position: relative;
+      border-radius: 14px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      background: #fff;
+      height: 480px;
+      box-shadow: var(--shadow-md);
+    }
+
+    .hero-editorial-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .editorial-badge-box {
+      position: absolute;
+      bottom: 20px;
+      left: 20px;
+      right: 20px;
+      background: rgba(255, 255, 255, 0.94);
+      backdrop-filter: blur(12px);
+      border: 1px solid var(--border);
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 10px 25px rgba(15, 23, 42, 0.08);
+    }
+
+    .editorial-badge-box h4 {
+      font-family: var(--font-display);
+      font-size: 18px;
+      color: var(--text);
+      margin-bottom: 4px;
+    }
+
+    .editorial-badge-box p {
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    /* Specifications Matrix */
+    .matrix-section {
+      padding: 90px 32px;
+      max-width: 1240px;
+      margin: 0 auto;
+    }
+
+    .section-eyebrow-tech {
+      font-family: monospace;
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--purple);
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 10px;
+      display: block;
+    }
+
+    .section-headline {
+      font-family: var(--font-display);
+      font-size: clamp(30px, 4vw, 44px);
+      letter-spacing: -1px;
+      margin-bottom: 48px;
+      color: var(--text);
+    }
+
+    .matrix-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+    }
+
+    @media (max-width: 880px) {
+      .matrix-grid { grid-template-columns: 1fr; }
+      .matrix-section { padding: 60px 20px; }
+    }
+
+    .matrix-card {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 36px 30px;
+      transition: all 0.25s ease;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .matrix-card:hover {
+      border-color: var(--purple-border);
+      transform: translateY(-4px);
+      box-shadow: 0 16px 32px rgba(124, 58, 237, 0.08);
+    }
+
+    .matrix-code {
+      font-family: monospace;
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--purple);
+      background: var(--purple-soft);
+      padding: 4px 10px;
+      border-radius: 4px;
+      display: inline-block;
+      margin-bottom: 20px;
+    }
+
+    .matrix-card h3 {
+      font-family: var(--font-display);
+      font-size: 22px;
+      margin-bottom: 12px;
+      letter-spacing: -0.5px;
+      color: var(--text);
+    }
+
+    .matrix-card p {
+      font-size: 14px;
+      color: var(--text-muted);
+      line-height: 1.7;
+    }
+
+    /* Studio Dual Panel: Chapa & Detailing */
+    .studio-split {
+      background: #ffffff;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 90px 32px;
+    }
+
+    .studio-wrap {
+      max-width: 1240px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 36px;
+    }
+
+    @media (max-width: 880px) {
+      .studio-wrap { grid-template-columns: 1fr; }
+      .studio-split { padding: 60px 20px; }
+    }
+
+    .studio-panel {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      overflow: hidden;
+      transition: border-color 0.25s;
+    }
+
+    .studio-panel:hover {
+      border-color: var(--purple-border);
+    }
+
+    .studio-img-wrap {
+      height: 290px;
+      overflow: hidden;
+    }
+
+    .studio-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+
+    .studio-panel:hover .studio-img-wrap img {
+      transform: scale(1.03);
+    }
+
+    .studio-panel-body {
+      padding: 34px;
+    }
+
+    .studio-panel-body h3 {
+      font-family: var(--font-display);
+      font-size: 24px;
+      color: var(--text);
+      margin-bottom: 12px;
+    }
+
+    .studio-panel-body p {
+      font-size: 14px;
+      color: var(--text-muted);
+      line-height: 1.7;
+    }
+
+    /* Process Flow 4 Steps */
+    .process-flow {
+      padding: 90px 32px;
+      max-width: 1240px;
+      margin: 0 auto;
+    }
+
+    .steps-row {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      margin-top: 44px;
+    }
+
+    @media (max-width: 880px) {
+      .steps-row { grid-template-columns: 1fr 1fr; }
+      .process-flow { padding: 60px 20px; }
+    }
+    @media (max-width: 540px) {
+      .steps-row { grid-template-columns: 1fr; }
+    }
+
+    .step-box {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 28px 24px;
+      border-top: 3px solid var(--purple);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .step-num {
+      font-family: monospace;
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--purple);
+      margin-bottom: 10px;
+      display: block;
+    }
+
+    .step-box h4 {
+      font-family: var(--font-display);
+      font-size: 18px;
+      color: var(--text);
+      margin-bottom: 8px;
+    }
+
+    .step-box p {
+      font-size: 13px;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    /* Light Clean Quote Bar */
+    .quote-studio-bar {
+      border: 1px solid var(--purple-border);
+      background: linear-gradient(135deg, #ffffff 0%, var(--purple-soft) 100%);
+      border-radius: 16px;
+      padding: 50px 32px;
+      text-align: center;
+      max-width: 860px;
+      margin: 0 auto 90px;
+      box-shadow: var(--shadow-md);
+    }
+
+    .quote-studio-bar h3 {
+      font-family: var(--font-display);
+      font-size: 32px;
+      margin-bottom: 12px;
+      color: var(--text);
+    }
+
+    .quote-studio-bar p {
+      font-size: 15px;
+      color: var(--text-muted);
+      max-width: 560px;
+      margin: 0 auto 28px;
+    }
+
+    .btn-wpp-lead {
+      background: var(--purple);
+      color: #fff;
+      font-size: 15px;
+      font-weight: 700;
+      padding: 15px 36px;
+      border-radius: 50px;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      transition: all 0.2s;
+      box-shadow: 0 8px 24px rgba(124, 58, 237, 0.3);
+    }
+
+    .btn-wpp-lead:hover {
+      background: var(--purple-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 12px 30px rgba(124, 58, 237, 0.45);
+    }
+
+    /* Luminous Footer */
+    footer {
+      border-top: 1px solid var(--border);
+      background: #ffffff;
+      padding: 40px 32px;
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    .footer-flex {
+      max-width: 1240px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Luminous Precision Header -->
+  <header>
+    <div class="nav-wrap">
+      <img src="assets/logo-light-bg.png" alt="Cool Cars Pilar" class="brand-logo">
+      <div class="nav-meta">
+        <span class="meta-tag">PILAR · RP 25 KM 6965</span>
+        <span>+15 Años de Experiencia</span>
+        <a href="https://wa.me/5491164766041?text=Hola%20Cool%20Cars!%20Consulto%20por%20chapa%20y%20pintura" target="_blank" class="btn-wpp-direct">
+          Enviar Fotos por WhatsApp
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-grid">
+      <div>
+        <div class="hero-eyebrow">
+          // ESTÉTICA AUTOMOTRIZ & CHAPA ARTESANAL
+        </div>
+        <h1 class="hero-title">
+          Precisión en color. <span>Terminación</span> de fábrica.
+        </h1>
+        <p class="hero-lead">
+          Tratamos cada vehículo con rigor técnico: colorimetría formulada según código original, cabina de pintura presurizada y un nuevo Box de Detailing para sellados cerámicos y abrillantado.
+        </p>
+
+        <div class="hero-cta-line">
+          <a href="https://wa.me/5491164766041?text=Hola%20Cool%20Cars!%20Quiero%20presupuestar%20mi%20auto" target="_blank" class="btn-atelier">
+            Solicitar peritaje con fotos →
+          </a>
+          <span class="loc-text">📍 Av. Dr. Honorio Pueyrredón 6965, Villa Rosa · Pilar</span>
+        </div>
+      </div>
+
+      <div class="hero-editorial-img">
+        <img src="assets/brillo-detailing.jpg" alt="Acabado de brillo y corrección de pintura">
+        <div class="editorial-badge-box">
+          <h4>Detalle y Brillo Espejo</h4>
+          <p>Lustrado en 3 fases y protección cerámica para devolver la profundidad original.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Technical Matrix -->
+  <section class="matrix-section">
+    <span class="section-eyebrow-tech">ESTÁNDARES DE CALIDAD</span>
+    <h2 class="section-headline">Criterio técnico sin improvisación</h2>
+
+    <div class="matrix-grid">
+      <div class="matrix-card">
+        <span class="matrix-code">SYS.01 // COLOR MATCH</span>
+        <h3>Laboratorio de Color</h3>
+        <p>Búsqueda y ajuste computarizado de pigmentos. Aseguramos que la pieza reparada conserve la tonalidad idéntica al resto del vehículo.</p>
+      </div>
+
+      <div class="matrix-card">
+        <span class="matrix-code">SYS.02 // CABINA PURA</span>
+        <h3>Horneado Presurizado</h3>
+        <p>La pintura bicapa se aplica en cabina cerrada con flujo constante de aire filtrado, evitando motas y asegurando un curado uniforme.</p>
+      </div>
+
+      <div class="matrix-card">
+        <span class="matrix-code">SYS.03 // PROTECCIÓN</span>
+        <h3>Tratamientos 9H</h3>
+        <p>Sellado cerámico con nanotecnología hidrofóbica que protege el barniz contra radiación solar, sales y micro-rayas de lavado.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Studio Split: Chapa vs Detailing -->
+  <section class="studio-split">
+    <div class="studio-wrap">
+      <div class="studio-panel">
+        <div class="studio-img-wrap">
+          <img src="assets/chapa-estructura.jpg" alt="Enderezado y alineación de carrocería">
+        </div>
+        <div class="studio-panel-body">
+          <h3>Chapa Estructural & Escuadre</h3>
+          <p>Enderezado fino de largueros, frente, guardabarros y paneles sin deformar el temple del metal. Mantenemos las tolerancias de fábrica.</p>
+        </div>
+      </div>
+
+      <div class="studio-panel">
+        <div class="studio-img-wrap">
+          <img src="assets/box-detailing.jpg" alt="Box de Detailing Cool Cars Pilar">
+        </div>
+        <div class="studio-panel-body">
+          <h3>Nuevo Box de Detailing</h3>
+          <p>Un espacio exclusivo para estética: desabollado artesanal (sacabollos DSP), restauración de ópticas y acondicionamiento interior.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4 Step Protocol -->
+  <section class="process-flow">
+    <span class="section-eyebrow-tech">PROTOCOLO DE ATENCIÓN</span>
+    <h2 class="section-headline">De la recepción a la entrega</h2>
+
+    <div class="steps-row">
+      <div class="step-box">
+        <span class="step-num">PASO 01</span>
+        <h4>Fotos & Peritaje</h4>
+        <p>Evaluamos el daño por WhatsApp y estimamos paños y tiempos de trabajo.</p>
+      </div>
+      <div class="step-box">
+        <span class="step-num">PASO 02</span>
+        <h4>Chapa & Alineación</h4>
+        <p>Recuperación de la forma original y ajuste fino de luces de carrocería.</p>
+      </div>
+      <div class="step-box">
+        <span class="step-num">PASO 03</span>
+        <h4>Pintura en Cabina</h4>
+        <p>Aplicación de primer, base color OEM y barniz poliuretánico horneado.</p>
+      </div>
+      <div class="step-box">
+        <span class="step-num">PASO 04</span>
+        <h4>Lustrado & Control</h4>
+        <p>Pulido en 3 pasos, limpieza detallada y entrega garantizada.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Clean Quote Bar -->
+  <div class="quote-studio-bar">
+    <h3>¿Tenés que arreglar tu auto?</h3>
+    <p>Mandanos una foto del lateral, paragolpes o golpe y te respondemos en el día con el presupuesto sin cargo.</p>
+    <a href="https://wa.me/5491164766041?text=Hola!%20Te%20mando%20fotos%20para%20un%20presupuesto" target="_blank" class="btn-wpp-lead">
+      Enviar fotos al 11 6476-6041 📸
+    </a>
+  </div>
+
+  <!-- Luminous Footer -->
+  <footer>
+    <div class="footer-flex">
+      <div>
+        <img src="assets/logo-light-bg.png" alt="Cool Cars Pilar" style="height: 26px; margin-bottom: 6px;">
+        <p>Av. Dr. Honorio Pueyrredón 6965, Villa Rosa, Pilar · Buenos Aires</p>
+      </div>
+      <div>
+        <p>WhatsApp: <strong>+54 9 11 6476-6041</strong> · Instagram: <strong>@coolcarspilar</strong></p>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

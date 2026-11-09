@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cool Cars Pilar | Propuesta de Diseño Web · Poldev Estudio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #07080b;
+      --surface: #0f1117;
+      --card: #161822;
+      --border: rgba(255, 255, 255, 0.08);
+      --purple: #8b5cf6;
+      --purple-soft: rgba(139, 92, 246, 0.15);
+      --text: #f8fafc;
+      --muted: #94a3b8;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      overflow-x: hidden;
+    }
+
+    /* Top Control Bar */
+    .top-bar {
+      background: rgba(15, 17, 23, 0.95);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+      padding: 12px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .brand-hub {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .brand-logo-hub {
+      height: 30px;
+      width: auto;
+    }
+
+    .hub-title {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--muted);
+      border-left: 1px solid var(--border);
+      padding-left: 16px;
+    }
+
+    .hub-title strong {
+      color: #fff;
+    }
+
+    /* Style Switcher Tabs */
+    .tabs-wrapper {
+      display: flex;
+      background: #08090d;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 4px;
+      gap: 4px;
+    }
+
+    .tab-btn {
+      background: transparent;
+      border: none;
+      color: var(--muted);
+      padding: 8px 16px;
+      border-radius: 6px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.2s;
+    }
+
+    .tab-btn:hover {
+      color: var(--text);
+    }
+
+    .tab-btn.active {
+      background: var(--card);
+      color: #fff;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.4);
+    }
+
+    .tab-btn.active.tab-a {
+      border-left: 3px solid #c084fc;
+    }
+
+    .tab-btn.active.tab-b {
+      border-left: 3px solid #8b5cf6;
+    }
+
+    .tab-btn.active.tab-c {
+      border-left: 3px solid #e879f9;
+    }
+
+    /* Device Toggles */
+    .device-controls {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .device-btn {
+      background: var(--card);
+      border: 1px solid var(--border);
+      color: var(--text);
+      padding: 8px 12px;
+      border-radius: 6px;
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s;
+    }
+
+    .device-btn.active {
+      background: #fff;
+      color: #000;
+      border-color: #fff;
+    }
+
+    .btn-fullscreen {
+      background: var(--purple);
+      color: #fff;
+      text-decoration: none;
+      padding: 8px 14px;
+      border-radius: 6px;
+      font-size: 12px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: background 0.2s;
+    }
+
+    .btn-fullscreen:hover {
+      background: #7c3aed;
+    }
+
+    /* Main Preview Container */
+    .preview-stage {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+      background: radial-gradient(circle at center, #12141c 0%, #07080b 100%);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .iframe-container {
+      width: 100%;
+      height: 100%;
+      min-height: calc(100vh - 130px);
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .iframe-container.device-desktop {
+      width: 100%;
+      height: calc(100vh - 130px);
+      border-radius: 8px;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.6);
+    }
+
+    .iframe-container.device-mobile {
+      width: 395px;
+      height: 820px;
+      max-height: calc(100vh - 110px);
+      border: 12px solid #232733;
+      border-radius: 40px;
+      box-shadow: 0 25px 60px rgba(0,0,0,0.8), 0 0 0 1px rgba(255,255,255,0.1);
+      position: relative;
+      background: #000;
+    }
+
+    .iframe-container.device-mobile::before {
+      content: '';
+      position: absolute;
+      top: -6px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 120px;
+      height: 16px;
+      background: #232733;
+      border-radius: 0 0 10px 10px;
+      z-index: 10;
+    }
+
+    iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+      background: #08090c;
+      border-radius: inherit;
+    }
+
+    /* Bottom quick specs bar */
+    .style-specs-bar {
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+      padding: 12px 24px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      font-size: 12px;
+    }
+
+    @media (max-width: 860px) {
+      .style-specs-bar {
+        display: none;
+      }
+    }
+
+    .spec-card-hub {
+      padding: 10px 14px;
+      border-radius: 6px;
+      background: #08090d;
+      border: 1px solid var(--border);
+    }
+
+    .spec-card-hub strong {
+      display: block;
+      margin-bottom: 2px;
+      font-size: 13px;
+    }
+
+    .spec-card-hub span {
+      color: var(--muted);
+      font-size: 11px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Controller -->
+  <div class="top-bar">
+    <div class="brand-hub">
+      <img src="assets/logo-transparent.png" alt="Cool Cars Pilar" class="brand-logo-hub">
+      <div class="hub-title">
+        Propuestas Web <span>· Poldev Estudio</span>
+      </div>
+    </div>
+
+    <!-- Style Tabs -->
+    <div class="tabs-wrapper">
+      <button class="tab-btn tab-a active" onclick="switchStyle('estilo-a.html', this, 'tab-a')">
+        <span>⚡ Estilo A: Dark Studio (Reels & Slider)</span>
+      </button>
+      <button class="tab-btn tab-b" onclick="switchStyle('estilo-b.html', this, 'tab-b')">
+        <span>🔬 Estilo B: Clean Atelier (Luminous White)</span>
+      </button>
+      <button class="tab-btn tab-c" onclick="switchStyle('estilo-c.html', this, 'tab-c')">
+        <span>🤝 Estilo C: Workshop Story</span>
+      </button>
+    </div>
+
+    <!-- Device Controls -->
+    <div class="device-controls">
+      <button class="device-btn active" id="btn-desktop" onclick="setDevice('desktop')">
+        <span>🖥️ Desktop</span>
+      </button>
+      <button class="device-btn" id="btn-mobile" onclick="setDevice('mobile')">
+        <span>📱 Celular</span>
+      </button>
+      <a href="estilo-a.html" target="_blank" class="btn-fullscreen" id="btn-open-full">
+        Página Completa ↗
+      </a>
+    </div>
+  </div>        
+
+  <!-- Visor del Sitio con iframe -->
+  <div class="preview-stage">
+    <div id="iframe-holder" class="iframe-container device-desktop">
+      <iframe id="preview-frame" src="estilo-a.html" title="Vista previa de maqueta"></iframe>
+    </div>
+  </div>
+
+  <!-- Bottom Quick Specs Guide -->
+  <div class="style-specs-bar">
+    <div class="spec-card-hub" style="border-left: 3px solid #c084fc;">
+      <strong style="color: #c084fc;">Propuesta A: Dark Studio</strong>
+      <span>Impacto visual nocturno, slider interactivo de antes/después con arrastre táctil y feed de videos reales.</span>
+    </div>
+    <div class="spec-card-hub" style="border-left: 3px solid #8b5cf6;">
+      <strong style="color: #a78bfa;">Propuesta B: Clean Atelier (Tema Claro)</strong>
+      <span>Estética luminosa tipo galería arquitectónica en blanco y lavanda. Foco en precisión técnica, colorimetría OEM y Box de Detailing.</span>
+    </div>
+    <div class="spec-card-hub" style="border-left: 3px solid #e879f9;">
+      <strong style="color: #e879f9;">Propuesta C: Workshop Story</strong>
+      <span>Enfoque humano y artesanal ("Atendido por sus dueños"), presupuestos honestos sin sorpresas y seguimiento por WhatsApp.</span>
+    </div>
+  </div>
+
+  <!-- Script interactivo -->
+  <script>
+    let currentStyle = 'estilo-a.html';
+
+    function switchStyle(file, btn, tabClass) {
+      currentStyle = file;
+      document.getElementById('preview-frame').src = file;
+      document.getElementById('btn-open-full').href = file;
+
+      document.querySelectorAll('.tab-btn').forEach(b => {
+        b.className = 'tab-btn';
+      });
+      btn.className = `tab-btn active ${tabClass}`;
+    }
+
+    function setDevice(mode) {
+      const holder = document.getElementById('iframe-holder');
+      const btnDesk = document.getElementById('btn-desktop');
+      const btnMob = document.getElementById('btn-mobile');
+
+      if (mode === 'mobile') {
+        holder.className = 'iframe-container device-mobile';
+        btnMob.classList.add('active');
+        btnDesk.classList.remove('active');
+      } else {
+        holder.className = 'iframe-container device-desktop';
+        btnDesk.classList.add('active');
+        btnMob.classList.remove('active');
+      }
+    }
+  </script>
+</body>
+</html>
