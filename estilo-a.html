@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
   <title>Cool Cars Pilar | Chapa, Pintura & Detailing · Propuesta Dark Studio</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -29,13 +29,19 @@
       padding: 0;
     }
 
+    html, body {
+      overflow-x: hidden;
+      max-width: 100vw;
+      width: 100%;
+      position: relative;
+    }
+
     body {
       background-color: var(--bg-main);
       color: var(--text);
       font-family: var(--font-body);
       line-height: 1.6;
       -webkit-font-smoothing: antialiased;
-      overflow-x: hidden;
     }
 
     /* Header */
@@ -269,44 +275,130 @@
       color: #c4b5fd;
     }
 
-    /* Stats strip */
-    .stats-strip {
+    /* Stats Drag & Swipe Carousel */
+    .stats-carousel-section {
       border-top: 1px solid var(--border);
       border-bottom: 1px solid var(--border);
-      background: var(--bg-surface);
-      padding: 32px 24px;
+      background: #0c0e14;
+      padding: 30px 0 24px;
+      width: 100%;
+      overflow: hidden;
+      position: relative;
     }
 
-    .stats-wrap {
+    .stats-carousel-container {
       max-width: 1200px;
       margin: 0 auto;
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 24px;
+      padding: 0 20px;
     }
 
-    @media (max-width: 768px) {
-      .stats-wrap {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 20px;
-      }
+    .stats-carousel-track {
+      display: flex;
+      gap: 16px;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+      padding: 10px 4px 18px;
+      cursor: grab;
+      user-select: none;
     }
 
-    .stat-item h3 {
+    .stats-carousel-track:active,
+    .stats-carousel-track.dragging {
+      cursor: grabbing;
+    }
+
+    .stats-carousel-track::-webkit-scrollbar {
+      display: none;
+    }
+
+    .stat-card {
+      flex: 0 0 calc(25% - 12px);
+      min-width: 240px;
+      scroll-snap-align: start;
+      background: rgba(255, 255, 255, 0.025);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 24px 22px;
+      transition: border-color 0.25s, transform 0.25s, box-shadow 0.25s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .stat-card:hover {
+      border-color: var(--border-focus);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(123, 44, 191, 0.15);
+    }
+
+    .stat-badge {
+      display: inline-block;
+      font-family: monospace;
+      font-size: 11px;
+      font-weight: 700;
+      color: #c084fc;
+      background: var(--purple-soft);
+      border: 1px solid var(--border-focus);
+      padding: 3px 8px;
+      border-radius: 4px;
+      margin-bottom: 14px;
+      letter-spacing: 1px;
+    }
+
+    .stat-title {
       font-family: var(--font-display);
       font-size: 32px;
       font-weight: 800;
       color: #fff;
-      margin-bottom: 2px;
+      line-height: 1.1;
+      margin-bottom: 6px;
+      white-space: nowrap;
     }
 
-    .stat-item h3 span {
+    .stat-title span {
       color: #c084fc;
     }
 
-    .stat-item p {
+    .stat-sub {
       font-size: 13px;
       color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    .carousel-dots-wrap {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+      margin-top: 8px;
+    }
+
+    .carousel-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.2);
+      transition: all 0.25s ease;
+    }
+
+    .carousel-dot.active {
+      width: 24px;
+      border-radius: 10px;
+      background: var(--purple-glow);
+      box-shadow: 0 0 10px rgba(157, 78, 221, 0.6);
+    }
+
+    @media (max-width: 860px) {
+      .stat-card {
+        flex: 0 0 78%;
+        min-width: 220px;
+        scroll-snap-align: center;
+        padding: 20px 18px;
+      }
+      .stat-title {
+        font-size: 28px;
+      }
     }
 
     /* Core Services - Senior Refined Layout */
@@ -720,6 +812,68 @@
       .mobile-bar {
         display: block;
       }
+      header {
+        padding: 10px 16px;
+      }
+      .brand-logo-img {
+        height: 30px;
+      }
+      .btn-nav-wpp {
+        font-size: 12px;
+        padding: 7px 12px;
+      }
+      .hero {
+        padding: 40px 16px 50px;
+      }
+      .hero-wrap {
+        gap: 30px;
+      }
+      .hero-h1 {
+        font-size: clamp(30px, 8.5vw, 44px);
+        margin-bottom: 16px;
+      }
+      .hero-p {
+        font-size: 15px;
+        margin-bottom: 24px;
+      }
+      .btn-primary {
+        width: 100%;
+        justify-content: center;
+        padding: 14px 20px;
+        font-size: 14px;
+      }
+      .hero-media-card img {
+        height: 300px;
+      }
+      .section {
+        padding: 60px 16px;
+      }
+      .slider-section {
+        padding: 60px 16px;
+      }
+      .reels-section {
+        padding: 60px 16px;
+      }
+      .location-box {
+        padding: 24px 18px;
+        margin-bottom: 40px;
+      }
+      .loc-content h3 {
+        font-size: 24px;
+      }
+      .loc-actions {
+        flex-direction: column;
+      }
+      .loc-actions a {
+        width: 100%;
+        text-align: center;
+        justify-content: center;
+      }
+      .footer-wrap {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+      }
     }
 
     .mobile-bar-btn {
@@ -796,27 +950,48 @@
     </div>
   </section>
 
-  <!-- Stats Strip -->
-  <div class="stats-strip">
-    <div class="stats-wrap">
-      <div class="stat-item">
-        <h3>+15<span>Años</span></h3>
-        <p>De oficio en chapa y pintura</p>
+  <!-- Stats Drag & Swipe Carousel -->
+  <section class="stats-carousel-section">
+    <div class="stats-carousel-container">
+      <div class="stats-carousel-track" id="statsCarousel">
+        <div class="stat-card">
+          <span class="stat-badge">TRAYECTORIA</span>
+          <div class="stat-info">
+            <h3 class="stat-title">+15 <span>Años</span></h3>
+            <p class="stat-sub">De oficio y experiencia en chapa y pintura</p>
+          </div>
+        </div>
+        <div class="stat-card">
+          <span class="stat-badge">COLOR LAB</span>
+          <div class="stat-info">
+            <h3 class="stat-title">100% <span>OEM</span></h3>
+            <p class="stat-sub">Igualación exacta de tono original de fábrica</p>
+          </div>
+        </div>
+        <div class="stat-card">
+          <span class="stat-badge">CABINA PURA</span>
+          <div class="stat-info">
+            <h3 class="stat-title">Cabina <span>Horno</span></h3>
+            <p class="stat-sub">Secado presurizado libre de motas e impurezas</p>
+          </div>
+        </div>
+        <div class="stat-card">
+          <span class="stat-badge">COTIZACIÓN</span>
+          <div class="stat-info">
+            <h3 class="stat-title">Fotos <span>en el Día</span></h3>
+            <p class="stat-sub">Presupuestos ágiles sin cargo por WhatsApp</p>
+          </div>
+        </div>
       </div>
-      <div class="stat-item">
-        <h3>100%<span>OEM</span></h3>
-        <p>Igualación de tono original</p>
-      </div>
-      <div class="stat-item">
-        <h3>Cabina<span>Horno</span></h3>
-        <p>Secado presurizado libre de motas</p>
-      </div>
-      <div class="stat-item">
-        <h3>Fotos<span>En el Día</span></h3>
-        <p>Presupuestos ágiles por WhatsApp</p>
+      <!-- Dots Indicator -->
+      <div class="carousel-dots-wrap" id="carouselDots">
+        <span class="carousel-dot active"></span>
+        <span class="carousel-dot"></span>
+        <span class="carousel-dot"></span>
+        <span class="carousel-dot"></span>
       </div>
     </div>
-  </div>
+  </section>
 
   <!-- Services -->
   <section class="section" id="servicios">
@@ -1005,6 +1180,43 @@
     slider.addEventListener('touchstart', () => isDown = true, { passive: true });
     window.addEventListener('touchend', () => isDown = false);
     slider.addEventListener('touchmove', move, { passive: true });
+
+    // Stats Drag & Swipe Carousel Controller
+    const statsTrack = document.getElementById('statsCarousel');
+    const statDots = document.querySelectorAll('.carousel-dot');
+    let isTrackDown = false;
+    let trackStartX;
+    let trackScrollLeft;
+
+    if (statsTrack) {
+      statsTrack.addEventListener('mousedown', (e) => {
+        isTrackDown = true;
+        statsTrack.classList.add('dragging');
+        trackStartX = e.pageX - statsTrack.offsetLeft;
+        trackScrollLeft = statsTrack.scrollLeft;
+      });
+      window.addEventListener('mouseup', () => {
+        isTrackDown = false;
+        if (statsTrack) statsTrack.classList.remove('dragging');
+      });
+      statsTrack.addEventListener('mousemove', (e) => {
+        if (!isTrackDown) return;
+        e.preventDefault();
+        const x = e.pageX - statsTrack.offsetLeft;
+        const walk = (x - trackStartX) * 1.5;
+        statsTrack.scrollLeft = trackScrollLeft - walk;
+      });
+
+      // Update dots on scroll
+      statsTrack.addEventListener('scroll', () => {
+        const maxScroll = statsTrack.scrollWidth - statsTrack.clientWidth;
+        if (maxScroll <= 0) return;
+        const index = Math.round((statsTrack.scrollLeft / maxScroll) * (statDots.length - 1));
+        statDots.forEach((dot, i) => {
+          dot.classList.toggle('active', i === index);
+        });
+      }, { passive: true });
+    }
   </script>
 </body>
 </html>
