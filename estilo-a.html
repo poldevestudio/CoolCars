@@ -595,102 +595,6 @@
       margin-top: 16px;
     }
 
-    /* Real Reels / Instagram Showcase */
-    .reels-section {
-      padding: 100px 24px;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
-    .reels-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 28px;
-    }
-
-    @media (max-width: 860px) {
-      .reels-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    .reel-card {
-      background: var(--bg-surface);
-      border: 1px solid var(--border);
-      border-radius: 14px;
-      overflow: hidden;
-      text-decoration: none;
-      color: inherit;
-      display: block;
-      transition: all 0.3s ease;
-    }
-
-    .reel-card:hover {
-      border-color: var(--border-focus);
-      transform: translateY(-4px);
-    }
-
-    .reel-thumb-wrap {
-      position: relative;
-      height: 380px;
-      overflow: hidden;
-      background: #000;
-    }
-
-    .reel-thumb-wrap img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform 0.4s ease;
-    }
-
-    .reel-card:hover .reel-thumb-wrap img {
-      transform: scale(1.04);
-    }
-
-    .reel-play-badge {
-      position: absolute;
-      top: 16px;
-      right: 16px;
-      width: 36px;
-      height: 36px;
-      border-radius: 50%;
-      background: rgba(8, 9, 12, 0.7);
-      backdrop-filter: blur(8px);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #fff;
-    }
-
-    .reel-body {
-      padding: 24px;
-    }
-
-    .reel-cat {
-      font-size: 11px;
-      color: #c084fc;
-      text-transform: uppercase;
-      font-weight: 700;
-      letter-spacing: 1px;
-      margin-bottom: 6px;
-      display: block;
-    }
-
-    .reel-body h4 {
-      font-family: var(--font-display);
-      font-size: 18px;
-      margin-bottom: 8px;
-      line-height: 1.3;
-      color: #fff;
-    }
-
-    .reel-body p {
-      font-size: 13px;
-      color: var(--text-muted);
-      line-height: 1.6;
-    }
-
     /* Workshop & Location Section */
     .location-box {
       background: linear-gradient(135deg, rgba(123, 44, 191, 0.12) 0%, rgba(16, 18, 23, 0.9) 100%);
@@ -748,7 +652,7 @@
       color: #08090c;
       font-size: 14px;
       font-weight: 700;
-      padding: 12px 24px;
+      padding: 12px 28px;
       border-radius: 50px;
       text-decoration: none;
       display: inline-flex;
@@ -760,19 +664,23 @@
     .btn-maps:hover {
       background: #f3e8ff;
       transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(192, 132, 252, 0.35);
     }
 
     .loc-img-wrap {
-      border-radius: 12px;
+      border-radius: 14px;
       overflow: hidden;
-      height: 300px;
-      border: 1px solid var(--border);
+      height: 320px;
+      border: 1px solid var(--border-focus);
+      background: #101217;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
     }
 
-    .loc-img-wrap img {
+    .loc-img-wrap iframe {
       width: 100%;
       height: 100%;
-      object-fit: cover;
+      border: 0;
+      display: block;
     }
 
     /* Footer */
@@ -851,9 +759,6 @@
       .slider-section {
         padding: 60px 16px;
       }
-      .reels-section {
-        padding: 60px 16px;
-      }
       .location-box {
         padding: 24px 18px;
         margin-bottom: 40px;
@@ -904,7 +809,6 @@
       <ul class="nav-links">
         <li><a href="#servicios">Especialidades</a></li>
         <li><a href="#transformacion">Antes y Después</a></li>
-        <li><a href="#proyectos">En el Taller</a></li>
         <li><a href="#ubicacion">Ubicación</a></li>
       </ul>
       <a href="https://wa.me/5491164766041?text=Hola%20chicos%20de%20Cool%20Cars!%20Les%20mando%20fotos%20de%20mi%20auto%20para%20un%20presupuesto" target="_blank" class="btn-nav-wpp">
@@ -1045,58 +949,6 @@
     </div>
   </section>
 
-  <!-- Real Instagram Reels Grid -->
-  <section class="reels-section" id="proyectos">
-    <div class="section-head">
-      <span class="section-tag">Seguinos en @coolcarspilar</span>
-      <h2 class="section-title">Procesos Reales en Video</h2>
-    </div>
-
-    <div class="reels-grid">
-      <a href="https://www.instagram.com/coolcarspilar/" target="_blank" class="reel-card">
-        <div class="reel-thumb-wrap">
-          <img src="assets/reparacion-choque.jpg" alt="Transformación de lateral">
-          <div class="reel-play-badge">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
-          </div>
-        </div>
-        <div class="reel-body">
-          <span class="reel-cat">Chapa & Pintura</span>
-          <h4>Recuperación de lateral con choque</h4>
-          <p>Enderezado milimétrico, masillado fino y pintura con acabado de fábrica.</p>
-        </div>
-      </a>
-
-      <a href="https://www.instagram.com/coolcarspilar/" target="_blank" class="reel-card">
-        <div class="reel-thumb-wrap">
-          <img src="assets/restauracion-opticas.jpg" alt="Restauración de ópticas">
-          <div class="reel-play-badge">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
-          </div>
-        </div>
-        <div class="reel-body">
-          <span class="reel-cat">Detailing</span>
-          <h4>Restauración y pulido de ópticas</h4>
-          <p>Eliminación de opacidad y barniz amarillo, devolviendo el haz de luz original.</p>
-        </div>
-      </a>
-
-      <a href="https://www.instagram.com/coolcarspilar/" target="_blank" class="reel-card">
-        <div class="reel-thumb-wrap">
-          <img src="assets/brillo-detailing.jpg" alt="Corrección de barniz y brillo">
-          <div class="reel-play-badge">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
-          </div>
-        </div>
-        <div class="reel-body">
-          <span class="reel-cat">Estética Automotriz</span>
-          <h4>Corrección de barniz y sellado</h4>
-          <p>Lustrado en 3 pasos para eliminar micro-rayones y sellador con repelencia al agua.</p>
-        </div>
-      </a>
-    </div>
-  </section>
-
   <!-- Location & Contact -->
   <section class="section" id="ubicacion" style="padding-top: 0;">
     <div class="location-box">
@@ -1110,15 +962,22 @@
         </div>
         <div class="loc-actions">
           <a href="https://maps.app.goo.gl/wtBLmBh2vvhkSX7GA" target="_blank" class="btn-maps">
-            Ver en Google Maps ↗
-          </a>
-          <a href="https://wa.me/5491164766041?text=Hola%20chicos!%20Quiero%20pasar%20por%20el%20taller%20para%20un%20presupuesto" target="_blank" class="btn-primary" style="padding: 12px 24px; font-size: 14px;">
-            Consultar turno por WhatsApp
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg>
+            Navegar
           </a>
         </div>
       </div>
       <div class="loc-img-wrap">
-        <img src="assets/taller-proceso.jpg" alt="Taller Cool Cars Pilar en pleno trabajo">
+        <iframe 
+          src="https://maps.google.com/maps?q=-34.3923598,-58.8379849+(Cool+Cars+Pilar)&amp;t=&amp;z=16&amp;ie=UTF8&amp;iwloc=B&amp;output=embed" 
+          width="100%" 
+          height="100%" 
+          style="border:0;" 
+          allowfullscreen="" 
+          loading="lazy" 
+          referrerpolicy="no-referrer-when-downgrade"
+          title="Ubicación de Cool Cars Pilar en Google Maps">
+        </iframe>
       </div>
     </div>
   </section>

@@ -137,10 +137,6 @@
       border-left: 3px solid #8b5cf6;
     }
 
-    .tab-btn.active.tab-c {
-      border-left: 3px solid #e879f9;
-    }
-
     /* Device Toggles */
     .device-controls {
       display: flex;
@@ -258,7 +254,7 @@
       border-top: 1px solid var(--border);
       padding: 12px 24px;
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(2, 1fr);
       gap: 20px;
       font-size: 12px;
       width: 100%;
@@ -344,13 +340,10 @@
     <!-- Style Tabs -->
     <div class="tabs-wrapper">
       <button class="tab-btn tab-a active" onclick="switchStyle('estilo-a.html', this, 'tab-a')">
-        <span>⚡ Estilo A: Dark Studio (Reels & Slider)</span>
+        <span>⚡ Estilo A: Dark Studio (Slider & Mapa)</span>
       </button>
       <button class="tab-btn tab-b" onclick="switchStyle('estilo-b.html', this, 'tab-b')">
         <span>🔬 Estilo B: Clean Atelier (Luminous White)</span>
-      </button>
-      <button class="tab-btn tab-c" onclick="switchStyle('estilo-c.html', this, 'tab-c')">
-        <span>🤝 Estilo C: Workshop Story</span>
       </button>
     </div>
 
@@ -379,15 +372,11 @@
   <div class="style-specs-bar">
     <div class="spec-card-hub" style="border-left: 3px solid #c084fc;">
       <strong style="color: #c084fc;">Propuesta A: Dark Studio</strong>
-      <span>Impacto visual nocturno, slider interactivo de antes/después con arrastre táctil y feed de videos reales.</span>
+      <span>Impacto visual nocturno, slider interactivo de antes/después con arrastre táctil y mapa interactivo con navegación directa.</span>
     </div>
     <div class="spec-card-hub" style="border-left: 3px solid #8b5cf6;">
       <strong style="color: #a78bfa;">Propuesta B: Clean Atelier (Tema Claro)</strong>
       <span>Estética luminosa tipo galería arquitectónica en blanco y lavanda. Foco en precisión técnica, colorimetría OEM y Box de Detailing.</span>
-    </div>
-    <div class="spec-card-hub" style="border-left: 3px solid #e879f9;">
-      <strong style="color: #e879f9;">Propuesta C: Workshop Story</strong>
-      <span>Enfoque humano y artesanal ("Atendido por sus dueños"), presupuestos honestos sin sorpresas y seguimiento por WhatsApp.</span>
     </div>
   </div>
 

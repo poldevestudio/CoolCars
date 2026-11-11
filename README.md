@@ -1,6 +1,6 @@
 # Cool Cars Pilar · Chapa, Pintura Bicapa & Detailing Box
 
-Suite de 3 propuestas de diseño web de alta fidelidad desarrolladas por **Poldev Estudio** para el comercio **Cool Cars Pilar**.
+Suite de 2 propuestas de diseño web de alta fidelidad desarrolladas por **Poldev Estudio** para el comercio **Cool Cars Pilar**.
 
 ---
 
@@ -24,12 +24,12 @@ Suite de 3 propuestas de diseño web de alta fidelidad desarrolladas por **Polde
 
 ---
 
-## 🎨 Las 3 Propuestas Desarrolladas (Criterio Senior)
+## 🎨 Las 2 Propuestas Desarrolladas (Criterio Senior)
 
-### 1. [Propuesta A: Dark Studio (Reels & Slider Interactivo)](estilo-a.html)
-- **Concepto:** Fuerte impacto visual alineado a la cultura de Instagram y videos verticales que gestiona la CM.
+### 1. [Propuesta A: Dark Studio (Slider Interactivo & Mapa)](estilo-a.html)
+- **Concepto:** Fuerte impacto visual y diseño enfocado en la conversión directa.
 - **Elemento estrella:** **Slider interactivo de Antes y Después** con arrastre táctil (touch/mouse) para comparar la entrada del choque vs. la terminación en cabina.
-- **Feed de Procesos:** Formato 9:16 con fotos reales del taller (recuperación de lateral, restauración de faros, corrección de barniz).
+- **Ubicación & Navegación:** Mapa interactivo de Google Maps con pin de localización del taller y botón directo **"Navegar"** hacia Av. Honorio Pueyrredón 6965.
 - **Conversión:** CTA limpio y directo al WhatsApp sin formularios densos.
 
 ### 2. [Propuesta B: Clean Atelier (Tema Claro & Colorimetría)](estilo-b.html)
@@ -38,17 +38,12 @@ Suite de 3 propuestas de diseño web de alta fidelidad desarrolladas por **Polde
 - **Elemento estrella:** Matriz de especificaciones técnicas (Laboratorio de Color OEM, Cabina Presurizada, Protocolo de peritaje en 4 fases).
 - **Diseño:** Tipografía suiza/geométrica (*Space Grotesk* + *Plus Jakarta Sans*), microetiquetas monospace y presentación dual de Chapa Estructural vs. Box de Detailing.
 
-### 3. [Propuesta C: Workshop Story (Artesanal & Confianza)](estilo-c.html)
-- **Concepto:** Humanización del taller (*"Atendido por sus propios dueños"*). Rompe la desconfianza histórica de los talleres mecánicos tradicionales.
-- **Elemento estrella:** Tarjeta del equipo y compromiso de transparencia (presupuesto cerrado por escrito, fotos de cada avance por WhatsApp y garantía de color exacto).
-- **Diseño:** Cálido dentro de la paleta oscura de la marca, tipografía *Outfit* y galería de trabajos recientes.
-
 ---
 
 ## 🚀 Hub Central de Presentación (`index.html`)
 
 El archivo **`index.html`** funciona como suite de entrega profesional para el cliente:
-1. Permite alternar en vivo entre las 3 propuestas con pestañas estilizadas.
+1. Permite alternar en vivo entre las 2 propuestas con pestañas estilizadas.
 2. Selector de vista **Desktop** vs. **Marco Celular (Mobile)** para evaluar la experiencia en smartphones.
 3. Botón de acceso directo a pantalla completa.
 
@@ -61,7 +56,6 @@ WEBSMAQUETAS/CoolCars/
 ├── index.html                  # Panel de presentación al cliente
 ├── estilo-a.html               # Propuesta A: Dark Studio & Slider táctil
 ├── estilo-b.html               # Propuesta B: Precision Atelier & Técnica
-├── estilo-c.html               # Propuesta C: Workshop Story & Honest Craft
 ├── README.md                   # Ficha técnica y documentación
 └── assets/                     # Assets reales de marca (sin fotos de IA)
     ├── logo-transparent.png    # Logo original vectorizado sobre transparente
