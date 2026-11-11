@@ -63,7 +63,7 @@ WEBSMAQUETAS/CoolCars/
     ├── logo-light-bg.png       # Logo adaptado para fondos claros
     ├── antes-choque.jpg        # Foto real: Ingreso con choque frontal izquierdo (óptica y capot)
     ├── despues-cabina.jpg      # Foto real: Reparación y terminación en cabina (línea original)
-    ├── box-detailing.jpg       # Foto real: Nuevo Box de Detailing
+    ├── box-detailing.jpg       # Foto real: Nuevo Box de Detailing (Toyota Corolla blanco en box iluminado)
     ├── reparacion-choque.jpg   # Foto real: Recuperación lateral chocado
     ├── restauracion-opticas.jpg# Foto real: Restauración de faros
     ├── brillo-detailing.jpg    # Foto real: Corrección y brillo espejo
