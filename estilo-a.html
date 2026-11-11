@@ -167,20 +167,154 @@
       box-shadow: 0 0 10px #c084fc;
     }
 
+    /* Hero Opening Sequence Animations */
     .hero-h1 {
       font-family: var(--font-display);
-      font-size: clamp(40px, 5.5vw, 68px);
+      font-size: clamp(38px, 6vw, 68px);
       font-weight: 800;
-      line-height: 1.05;
+      line-height: 1.04;
       letter-spacing: -1.5px;
       margin-bottom: 24px;
       text-transform: uppercase;
+      overflow: hidden;
     }
 
-    .hero-h1 span {
+    .hero-line {
+      display: block;
+      opacity: 0;
+      will-change: transform, opacity;
+      animation-fill-mode: forwards;
+      animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .line-from-left {
+      transform: translateX(-70px);
+      animation-name: animLineLeft;
+      animation-duration: 0.65s;
+    }
+
+    .line-from-right {
+      transform: translateX(70px);
+      animation-name: animLineRight;
+      animation-duration: 0.65s;
+    }
+
+    .line-1 {
+      animation-delay: 0.15s;
+    }
+
+    .line-2 {
+      animation-delay: 0.38s;
+    }
+
+    .line-3 {
+      animation-delay: 0.62s;
+    }
+
+    .line-accent {
       background: linear-gradient(135deg, #ffffff 40%, #c084fc 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
+    }
+
+    @keyframes animLineLeft {
+      0% {
+        opacity: 0;
+        transform: translateX(-70px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    @keyframes animLineRight {
+      0% {
+        opacity: 0;
+        transform: translateX(70px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    /* Hero Subtitle & CTA reveals after title finishes */
+    .hero-p-reveal {
+      opacity: 0;
+      transform: translateY(18px);
+      animation: animFadeUp 0.65s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      animation-delay: 1.12s;
+    }
+
+    .hero-cta-reveal {
+      opacity: 0;
+      transform: translateY(18px);
+      animation: animFadeUp 0.65s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      animation-delay: 1.32s;
+    }
+
+    .hero-badge-reveal {
+      opacity: 0;
+      transform: translateY(-8px);
+      animation: animFadeUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      animation-delay: 0.05s;
+    }
+
+    .hero-media-reveal {
+      opacity: 0;
+      transform: scale(0.96) translateY(24px);
+      animation: animMediaReveal 0.85s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      animation-delay: 0.4s;
+    }
+
+    @keyframes animFadeUp {
+      0% {
+        opacity: 0;
+        transform: translateY(18px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes animMediaReveal {
+      0% {
+        opacity: 0;
+        transform: scale(0.96) translateY(24px);
+      }
+      100% {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+      }
+    }
+
+    /* Scroll-Driven Reveal System */
+    .scroll-reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1),
+                  transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+      will-change: opacity, transform;
+    }
+
+    .scroll-reveal.is-revealed {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .reveal-delay-1 { transition-delay: 0.12s; }
+    .reveal-delay-2 { transition-delay: 0.24s; }
+    .reveal-delay-3 { transition-delay: 0.36s; }
+
+    @media (prefers-reduced-motion: reduce) {
+      .hero-line, .hero-p-reveal, .hero-cta-reveal, .hero-badge-reveal, .hero-media-reveal, .scroll-reveal {
+        opacity: 1 !important;
+        transform: none !important;
+        animation: none !important;
+        transition: none !important;
+      }
     }
 
     .hero-p {
@@ -880,28 +1014,30 @@
   <section class="hero">
     <div class="hero-wrap">
       <div>
-        <div class="badge-pill">Taller & Detailing Box · Pilar</div>
+        <div class="badge-pill hero-badge-reveal">Taller & Detailing Box · Pilar</div>
         <h1 class="hero-h1">
-          Hacemos que <span>suceda.</span>
+          <span class="hero-line line-from-left line-1">HACEMOS</span>
+          <span class="hero-line line-from-right line-2">QUE</span>
+          <span class="hero-line line-from-left line-3 line-accent">SUCEDA.</span>
         </h1>
-        <p class="hero-p">
+        <p class="hero-p hero-p-reveal">
           ¿Te chocaron o rayaron el auto y te da dolor de cabeza pensar en el arreglo? En Cool Cars nos encargamos de devolverle la línea original y el brillo de fábrica, con la mejor calidad y sin vueltas.
         </p>
 
-        <div class="hero-action">
+        <div class="hero-action hero-cta-reveal">
           <a href="https://wa.me/5491164766041?text=Hola%20chicos%20de%20Cool%20Cars!%20Les%20mando%20fotos%20de%20mi%20auto%20para%20un%20presupuesto" target="_blank" class="btn-primary">
             Cotizar con fotos por WhatsApp →
           </a>
         </div>
 
-        <div class="hero-loc">
+        <div class="hero-loc hero-cta-reveal">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
           <span>Av. Dr. Honorio Pueyrredón 6965, Villa Rosa · Pilar</span>
         </div>
       </div>
 
       <div class="hero-visual">
-        <div class="hero-media-card">
+        <div class="hero-media-card hero-media-reveal">
           <img src="assets/box-detailing.jpg" alt="Nuevo Box de Detailing Cool Cars Pilar">
           <div class="media-card-caption">
             <h4>Nuevo Box de Detailing</h4>
@@ -914,7 +1050,7 @@
 
   <!-- Stats Drag & Swipe Carousel -->
   <section class="stats-carousel-section">
-    <div class="stats-carousel-container">
+    <div class="stats-carousel-container scroll-reveal">
       <div class="stats-carousel-track" id="statsCarousel">
         <div class="stat-card">
           <span class="stat-badge">TRAYECTORIA</span>
@@ -957,25 +1093,25 @@
 
   <!-- Services -->
   <section class="section" id="servicios">
-    <div class="section-head">
+    <div class="section-head scroll-reveal">
       <span class="section-tag">Capacidades del Taller</span>
       <h2 class="section-title">Especialidades Cool Cars</h2>
     </div>
 
     <div class="services-grid">
-      <div class="service-box">
+      <div class="service-box scroll-reveal reveal-delay-1">
         <span class="service-box-num">01 / ESTRUCTURA</span>
         <h3>Chapa & Escuadre</h3>
         <p>Enderezado fino de largueros, frente, guardabarros y paneles. Devolvemos las luces y líneas originales de carrocería sin deformaciones.</p>
       </div>
 
-      <div class="service-box">
+      <div class="service-box scroll-reveal reveal-delay-2">
         <span class="service-box-num">02 / COLOR</span>
         <h3>Pintura Bicapa en Cabina</h3>
         <p>Formulación exacta con laboratorio de color. Horneado y difuminado en paneles contiguos para que nadie note dónde estuvo el toque.</p>
       </div>
 
-      <div class="service-box">
+      <div class="service-box scroll-reveal reveal-delay-3">
         <span class="service-box-num">03 / ESTÉTICA</span>
         <h3>Box de Detailing & Ópticas</h3>
         <p>Sacabollos sin dañar pintura (DSP), abrillantado, selladores cerámicos de alta durabilidad y restauración cristalina de faros.</p>
@@ -986,13 +1122,13 @@
   <!-- Interactive Before / After Split Slider -->
   <section class="slider-section" id="transformacion">
     <div class="slider-container">
-      <div class="section-head" style="text-align: center; margin-bottom: 36px;">
+      <div class="section-head scroll-reveal" style="text-align: center; margin-bottom: 36px;">
         <span class="section-tag">Transformación Real</span>
         <h2 class="section-title">Del Golpe a la Línea de Fábrica</h2>
       </div>
 
       <!-- Slider interactivo con arrastre táctil / mouse -->
-      <div class="split-slider-wrapper" id="beforeAfterSlider">
+      <div class="split-slider-wrapper scroll-reveal reveal-delay-1" id="beforeAfterSlider">
         <img src="assets/despues-cabina.jpg" class="slider-img" id="imgAfter" alt="Trabajo finalizado en cabina">
         <div class="slider-overlay-img" id="sliderOverlay">
           <img src="assets/antes-choque.jpg" id="imgBefore" alt="Ingreso del choque en taller">
@@ -1003,13 +1139,13 @@
         <span class="slider-tag tag-left">INGRESO AL TALLER</span>
         <span class="slider-tag tag-right">ENTREGA FINAL FLAMA</span>
       </div>
-      <p class="slider-hint">↔ Arrastrá la barra con el mouse o con el dedo para comparar el antes y después</p>
+      <p class="slider-hint scroll-reveal reveal-delay-2">↔ Arrastrá la barra con el mouse o con el dedo para comparar el antes y después</p>
     </div>
   </section>
 
   <!-- Location & Contact -->
   <section class="section" id="ubicacion" style="padding-top: 0;">
-    <div class="location-box">
+    <div class="location-box scroll-reveal">
       <div class="loc-content">
         <h3>Visitanos en el Taller</h3>
         <p>
@@ -1042,7 +1178,7 @@
 
   <!-- Footer -->
   <footer>
-    <div class="footer-wrap">
+    <div class="footer-wrap scroll-reveal">
       <div>
         <img src="assets/logo-transparent.png" alt="Cool Cars Pilar" style="height: 28px; opacity: 0.7; margin-bottom: 8px;">
         <p>Taller de Chapa, Pintura y Detailing en Pilar · Prov. de Buenos Aires.</p>
@@ -1157,6 +1293,26 @@
           }
         });
       });
+    }
+
+    // Scroll Reveal Observer (High Performance & Smooth Entrance)
+    const revealElements = document.querySelectorAll('.scroll-reveal');
+    if ('IntersectionObserver' in window) {
+      const revealObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-revealed');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, {
+        threshold: 0.08,
+        rootMargin: '0px 0px -40px 0px'
+      });
+
+      revealElements.forEach(el => revealObserver.observe(el));
+    } else {
+      revealElements.forEach(el => el.classList.add('is-revealed'));
     }
   </script>
 </body>
